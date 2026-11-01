@@ -43,6 +43,10 @@ export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
 		LinkPreset.Archive,
+		{
+			name: "股市研究",
+			url: "/market/",
+		},
 		LinkPreset.About,
 		{
 			name: "GitHub",
