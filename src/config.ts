@@ -12,12 +12,12 @@ export const siteConfig: SiteConfig = {
 	subtitle: "每天记录一点点，回头看一大步",
 	lang: "zh_CN", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	themeColor: {
-		hue: 250, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
-		fixed: false, // Hide the theme color picker for visitors
+		hue: 200, // Default hue for the theme color, from 0 to 360. e.g. red: 0, teal: 200, cyan: 250, pink: 345
+		fixed: true, // Hide the theme color picker for visitors
 	},
 	banner: {
 		enable: false,
-		src: "assets/images/demo-banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+		src: "assets/images/banner.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 		position: "center", // Equivalent to object-position, only supports 'top', 'center', 'bottom'. 'center' by default
 		credit: {
 			enable: false, // Display the credit text of the banner image
@@ -42,22 +42,29 @@ export const siteConfig: SiteConfig = {
 export const navBarConfig: NavBarConfig = {
 	links: [
 		LinkPreset.Home,
-		LinkPreset.Archive,
 		{
 			name: "股市研究",
 			url: "/market/",
 		},
-		LinkPreset.About,
 		{
-			name: "GitHub",
-			url: "https://github.com/mozhike/mozhike.github.io", // Internal links should not include the base path, as it is automatically added
-			external: true, // Show an external link icon and will open in a new tab
+			name: "实战记录",
+			url: "/lab/",
 		},
+		{
+			name: "系统介绍",
+			url: "/system/",
+		},
+		{
+			name: "备忘记事",
+			url: "/notes/",
+		},
+		LinkPreset.Archive,
+		LinkPreset.About,
 	],
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/demo-avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
+	avatar: "assets/images/avatar.png", // Relative to the /src directory. Relative to the /public directory if it starts with '/'
 	name: "MoZhike",
 	bio: "记录 AI 探索历程，每日复盘，欢迎交流",
 	links: [
@@ -65,6 +72,11 @@ export const profileConfig: ProfileConfig = {
 			name: "GitHub",
 			icon: "fa6-brands:github",
 			url: "https://github.com/mozhike",
+		},
+		{
+			name: "Email",
+			icon: "fa6-solid:envelope",
+			url: "mailto:mozhike.blog@outlook.com",
 		},
 	],
 };

@@ -9,7 +9,7 @@ rainbow-light = linear-gradient(to right, oklch(0.80 0.10 0), oklch(0.80 0.10 30
 rainbow-dark = linear-gradient(to right, oklch(0.70 0.10 0), oklch(0.70 0.10 30), oklch(0.70 0.10 60), oklch(0.70 0.10 90), oklch(0.70 0.10 120), oklch(0.70 0.10 150), oklch(0.70 0.10 180), oklch(0.70 0.10 210), oklch(0.70 0.10 240), oklch(0.70 0.10 270), oklch(0.70 0.10 300), oklch(0.70 0.10 330), oklch(0.70 0.10 360))
 
 :root
-  --radius-large 1rem
+  --radius-large 0.65rem
   --content-delay 150ms
 
 /* An util to define variables that vary with light and dark mode */
@@ -23,9 +23,9 @@ define(vars)
         {key}: value[1]
 
 define({
-  --primary: oklch(0.70 0.14 var(--hue)) oklch(0.75 0.14 var(--hue))
-  --page-bg: oklch(0.95 0.01 var(--hue)) oklch(0.16 0.014 var(--hue))
-  --card-bg: white oklch(0.23 0.015 var(--hue))
+  --primary: oklch(0.62 0.13 var(--hue)) oklch(0.78 0.14 var(--hue))
+  --page-bg: oklch(0.96 0.008 var(--hue)) oklch(0.13 0.012 var(--hue))
+  --card-bg: white oklch(0.175 0.014 var(--hue))
 
   --btn-content: oklch(0.55 0.12 var(--hue)) oklch(0.75 0.1 var(--hue))
 
@@ -49,14 +49,14 @@ define({
 
   --line-divider: black(0.08) white(0.08)
 
-  --line-color: black(0.1) white(0.1)
+  --line-color: black(0.12) white(0.09)
   --meta-divider: black(0.2) white(0.2)
 
   --inline-code-bg: var(--btn-regular-bg)
   --inline-code-color: var(--btn-content)
   --selection-bg: oklch(0.90 0.05 var(--hue)) oklch(0.40 0.08 var(--hue))
   --codeblock-selection: oklch(0.40 0.08 var(--hue))
-  --codeblock-bg: oklch(0.17 0.015 var(--hue)) oklch(0.17 0.015 var(--hue))
+  --codeblock-bg: oklch(0.17 0.015 var(--hue)) oklch(0.15 0.012 var(--hue))
   --codeblock-topbar-bg: oklch(0.3 0.02 var(--hue)) oklch(0.12 0.015 var(--hue))
 
   --license-block-bg: black(0.03) var(--codeblock-bg)
@@ -65,7 +65,7 @@ define({
   --link-hover: oklch(0.95 0.025 var(--hue)) oklch(0.40 0.08 var(--hue))
   --link-active: oklch(0.90 0.05 var(--hue)) oklch(0.35 0.07 var(--hue))
 
-  --float-panel-bg: white oklch(0.19 0.015 var(--hue))
+  --float-panel-bg: white oklch(0.16 0.014 var(--hue))
 
   --scrollbar-bg-light: black(0.4)
   --scrollbar-bg-hover-light: black(0.5)
@@ -95,4 +95,10 @@ define({
   --toc-btn-active: oklch(0.90 0.015 var(--hue)) oklch(0.25 0.02 var(--hue))
   --toc-width: calc((100vw - var(--page-width)) / 2 - 1rem)
   --toc-item-active: oklch(0.70 0.13 var(--hue)) oklch(0.35 0.07 var(--hue))
+
+  /* 模块识别色，只用于细条、徽标、面包屑 */
+  --module-market: #b45309 #fbbf24
+  --module-lab: #6d28d9 #a78bfa
+  --module-system: #047857 #34d399
+  --module-notes: #475569 #94a3b8
 })

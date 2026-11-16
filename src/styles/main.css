@@ -150,3 +150,44 @@
     }
   }
 }
+/* ---- 终端风格辅助类 ---- */
+.font-term {
+    font-family: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* 极淡网格底纹，只在深色模式出现 */
+:root.dark body {
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
+    background-size: 24px 24px;
+}
+
+/* ---- 长表格：横向滚动 + 数字等宽 ---- */
+.table-wrap {
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.custom-md .table-wrap > table {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.custom-md th,
+.custom-md td {
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+.custom-md thead th {
+    background: color-mix(in srgb, var(--card-bg), var(--primary) 12%);
+}
+
+/* 模块卡片/徽标统一从这里取色 */
+.module-accent {
+    color: var(--module-color, var(--primary));
+}
+
+.module-bar {
+    background: var(--module-color, var(--primary));
+}

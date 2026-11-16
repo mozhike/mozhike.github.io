@@ -5,8 +5,9 @@ import Markdown from "@components/misc/Markdown.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { getModuleByCategory } from "../../constants/modules";
 import { getSortedPosts } from "@utils/content-utils";
-import { getDir, getPostUrlBySlug } from "@utils/url-utils";
+import { getDir, getPostUrlBySlug, url } from "@utils/url-utils";
 import { Icon } from "astro-icon/components";
 import { licenseConfig } from "src/config";
 import ImageWrapper from "../../components/misc/ImageWrapper.astro";
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const mod = getModuleByCategory(entry.data.category);
 const { Content, headings } = await entry.render();
 
 const { remarkPluginFrontmatter } = await entry.render();
@@ -50,7 +52,16 @@ const jsonLd = {
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative mb-4">
         <div id="post-container" class:list={["card-base z-10 px-6 md:px-9 pt-6 pb-4 relative w-full ",
             {}
-        ]}>
+        ]} style={`--module-color:${mod.color}`}>
+            <!-- module breadcrumb -->
+            <div class="font-term text-sm mb-3 flex flex-wrap items-center gap-2 onload-animation">
+                <a href={url("/")} class="text-30 hover:text-[var(--module-color)]">mozhike@blog</a>
+                <span class="text-25">:</span>
+                <a href={mod.path} class="module-accent hover:underline">/{mod.short}</a>
+                <span class="text-25">$</span>
+                <span class="text-30">cat {entry.slug}.md</span>
+            </div>
+
             <!-- word count and reading time -->
             <div class="flex flex-row text-black/30 dark:text-white/30 gap-5 mb-3 transition onload-animation">
                 <div class="flex flex-row items-center">
@@ -76,7 +87,7 @@ const jsonLd = {
                     class="transition w-full block font-bold mb-3
                     text-3xl md:text-[2.25rem]/[2.75rem]
                     text-black/90 dark:text-white/90
-                    md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--primary)]
+                    md:before:w-1 before:h-5 before:rounded-md before:bg-[var(--module-color)]
                     before:absolute before:top-[0.75rem] before:left-[-1.125rem]
                 ">
                     {entry.data.title}
@@ -102,7 +113,7 @@ const jsonLd = {
             }
 
 
-            <Markdown class="mb-6 markdown-content onload-animation">
+            <Markdown class={`mb-6 markdown-content onload-animation ${mod.key === "market" ? "" : "max-w-[72ch]"}`}>
                 <Content />
             </Markdown>
 

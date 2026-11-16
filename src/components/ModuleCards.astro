@@ -1,0 +1,55 @@
+---
+import { MODULES } from "../constants/modules";
+import { getSortedPostsList } from "../utils/content-utils";
+
+const posts = await getSortedPostsList();
+const items = MODULES.map((mod) => {
+	const list = posts.filter((post) => mod.matches(post.data.category));
+	return { mod, count: list.length, latest: list[0] };
+});
+
+const dateFormat = new Intl.DateTimeFormat("zh-CN", {
+	year: "numeric",
+	month: "2-digit",
+	day: "2-digit",
+	timeZone: "Asia/Shanghai",
+});
+---
+
+<div class="mb-4">
+	<div class="card-base p-5 md:p-6 mb-4">
+		<div class="font-term text-sm text-[var(--primary)]">
+			mozhike@blog:~$ ls ./modules
+		</div>
+		<div class="text-75 text-sm mt-2">
+			四个长期栏目：每日市场复盘、AI 与量化实战、系统说明书、零散技术备忘。
+		</div>
+	</div>
+
+	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+		{items.map(({ mod, count, latest }) => (
+			<a
+				href={mod.path}
+				class="card-base p-5 group transition hover:border-[var(--module-color)] relative overflow-hidden"
+				style={`--module-color:${mod.color}`}
+			>
+				<div class="module-bar absolute left-0 top-0 h-full w-[3px]"></div>
+				<div class="flex items-center justify-between mb-3">
+					<span class="font-term text-xs tracking-widest module-accent">
+						{mod.short.toUpperCase()}
+					</span>
+					<span class="font-term text-xs text-30">{count} posts</span>
+				</div>
+				<div class="text-xl font-bold text-90 mb-2 transition group-hover:text-[var(--module-color)]">
+					{mod.name}
+				</div>
+				{latest && (
+					<div class="text-sm text-75 line-clamp-2 mb-3">{latest.data.title}</div>
+				)}
+				<div class="font-term text-xs text-30">
+					{latest ? dateFormat.format(latest.data.published) : "暂无内容"}
+				</div>
+			</a>
+		))}
+	</div>
+</div>

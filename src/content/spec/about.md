@@ -1,9 +1,44 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+# 关于
 
-::github{repo="saicaca/fuwari"}
+```bash
+$ whoami
+mozhike
+$ cat ./now.txt
+在 AI 工程和 A 股研究之间来回折腾，把过程记下来。
+```
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+这个站是我的公开笔记本：正在做的事、踩过的坑、复盘过的行情，都按原样记下来。不包装成教程，也不做事后美化——判断、代码、失败的现场，尽量保持当时的样子。
+
+## 这里有什么
+
+| 栏目 | 写什么 |
+| --- | --- |
+| **股市研究** | A 股复盘、板块与个股的观察，以及量化筛选的实践记录 |
+| **实战记录** | 把 AI 真正用起来的工程笔记：Agent、自动化、数据管道 |
+| **系统介绍** | 我自己那套股票监测系统，怎么搭、怎么跑、哪里还不行 |
+| **备忘记事** | 零散但有用的技术备忘，方便以后翻回来查 |
+
+## 我的写法
+
+- **先跑通，再写。** 没实际验证过的东西，不写成结论。
+- **数字留出处。** 耗时、费用、命中率，能实测就不估；估的会标明是估算。
+- **失效就承认。** 接口会变、判断会错，回看时请连同文章日期一起看。
+- **小步记录。** 一次只改一点，改完就留下痕迹，方便追溯。
+
+## 边界
+
+- 不荐股、不代客理财、不承诺收益。所有内容仅为个人记录与交流，**不构成任何投资建议**。
+- 不公开持仓细节、内部策略参数和无法对外说明的数据。
+- 更新频率随缘，但会长期写下去。
+
+## 联系
+
+- 邮箱：[mozhike.blog@outlook.com](mailto:mozhike.blog@outlook.com)（来信请注明来自博客）
+- GitHub：[@mozhike](https://github.com/mozhike)
+- 本站源码：
+
+::github{repo="mozhike/mozhike.github.io"}
+
+有勘误或想讨论的内容，欢迎在仓库开 issue。
+
+> 慢慢写，长期更新。如果某篇对你有用，那是最好不过的事。

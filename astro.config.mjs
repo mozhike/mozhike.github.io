@@ -23,6 +23,7 @@ import { parseDirectiveNode } from "./src/plugins/remark-directive-rehype.js";
 import { remarkExcerpt } from "./src/plugins/remark-excerpt.js";
 import { remarkReadingTime } from "./src/plugins/remark-reading-time.mjs";
 import { pluginCustomCopyButton } from "./src/plugins/expressive-code/custom-copy-button.js";
+import { rehypeWrapTables } from "./src/plugins/rehype-wrap-tables.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -73,7 +74,7 @@ export default defineConfig({
 			},
 			styleOverrides: {
 				codeBackground: "var(--codeblock-bg)",
-				borderRadius: "0.75rem",
+				borderRadius: "0.5rem",
 				borderColor: "none",
 				codeFontSize: "0.875rem",
 				codeFontFamily: "'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
@@ -115,6 +116,7 @@ export default defineConfig({
 		rehypePlugins: [
 			rehypeKatex,
 			rehypeSlug,
+			rehypeWrapTables,
 			[
 				rehypeComponents,
 				{

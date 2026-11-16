@@ -1,0 +1,8 @@
+---
+import ModuleIndex from "@components/ModuleIndex.astro";
+import { MODULES } from "../constants/modules";
+
+const mod = MODULES.find((m) => m.key === "notes")!;
+---
+
+<ModuleIndex module={mod} />
