@@ -1,3 +1,10 @@
+export interface ModuleGroup {
+	key: string;
+	name: string;
+	blurb: string;
+	matches: (category: string | null | undefined) => boolean;
+}
+
 export interface BlogModule {
 	key: string;
 	name: string;
@@ -7,6 +14,7 @@ export interface BlogModule {
 	blurb: string;
 	chips: string[];
 	matches: (category: string | null | undefined) => boolean;
+	groups?: ModuleGroup[];
 }
 
 export const MODULES: BlogModule[] = [
@@ -18,8 +26,31 @@ export const MODULES: BlogModule[] = [
 		color: "var(--module-market)",
 		blurb:
 			"记录 A 股每天发生了什么、为什么，以及研究框架的进展。只做市场观察与复盘，不展示具体标的、持仓与交易参数，不构成投资建议。",
-		chips: ["每日复盘", "市场宽度", "风格观察", "研究进展"],
-		matches: (category) => category === "股市研究",
+		chips: ["每日复盘", "盘中直击", "市场宽度", "风格观察", "研究进展"],
+		matches: (category) =>
+			category === "股市研究" ||
+			category === "盘中直击·A股" ||
+			category === "盘中直击·美股",
+		groups: [
+			{
+				key: "review",
+				name: "每日复盘",
+				blurb: "每个交易日收盘后一篇：指数、宽度、量能、行业全量与消息面。",
+				matches: (category) => category === "股市研究",
+			},
+			{
+				key: "intraday-a",
+				name: "盘中直击 · A股",
+				blurb: "极端行情动态跟踪：交易时段每半小时一档，只记盘面事实与价量推断。",
+				matches: (category) => category === "盘中直击·A股",
+			},
+			{
+				key: "intraday-us",
+				name: "盘中直击 · 美股",
+				blurb: "极端行情动态跟踪·美股时段（北京时间晚间）：美债、美股与跨资产核对。",
+				matches: (category) => category === "盘中直击·美股",
+			},
+		],
 	},
 	{
 		key: "lab",
